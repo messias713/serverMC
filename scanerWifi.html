@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Scanner Wi-Fi</title>
+
+</head>
+
+<body>
+
+
+
+<h1>Scanner Wi-Fi</h1>
+
+
+
+<input type="text" id="pesquisa" placeholder="Digite o termo de pesquisa">
+
+<button onclick="buscarRedesWiFi()">Buscar redes Wi-Fi</button>
+
+
+
+<script>
+
+// Função para buscar redes Wi-Fi com base no termo de pesquisa
+
+function buscarRedesWiFi() {
+
+  const wifi = require('node-wifi');
+
+  const termoDePesquisa = document.getElementById('pesquisa').value.trim();
+
+
+
+  wifi.init({
+
+    iface: null // Se você estiver no Windows, pode precisar especificar a interface de rede
+
+  });
+
+
+
+  wifi.scan((error, networks) => {
+
+    if (error) {
+
+      console.error(error);
+
+      return;
+
+    }
+
+
+
+    const redesFiltradas = networks.filter(network => network.ssid.toLowerCase().includes(termoDePesquisa.toLowerCase()));
+
+
+
+    if (redesFiltradas.length === 0) {
+
+      console.log('Nenhuma rede Wi-Fi encontrada com o termo de pesquisa fornecido.');
+
+    } else {
+
+      console.log('Redes Wi-Fi encontradas com base no termo de pesquisa:');
+
+      redesFiltradas.forEach(network => {
+
+        console.log('Nome da rede:', network.ssid);
+
+        console.log('Sinal da rede:', network.signal_level);
+
+        console.log('---');
+
+      });
+
+    }
+
+  });
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
+-----------------------------------------
+Codigo aprimorado
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Scanner Wi-Fi</title>
+
+</head>
+
+<body>
+
+
+
+<h1>Scanner Wi-Fi</h1>
+
+
+
+<input type="text" id="pesquisa" placeholder="Digite o termo de pesquisa">
+
+<button onclick="buscarRedesWiFi()">Buscar redes Wi-Fi</button>
+
+
+
+<script>
+
+// Função para buscar redes Wi-Fi com base no termo de pesquisa
+
+function buscarRedesWiFi() {
+
+  const wifi = require('node-wifi');
+
+  const termoDePesquisa = document.getElementById('pesquisa').value.trim();
+
+
+
+  wifi.init({
+
+    iface: null // Se você estiver no Windows, pode precisar especificar a interface de rede
+
+  });
+
+
+
+  wifi.scan((error, networks) => {
+
+    if (error) {
+
+      console.error(error);
+
+      return;
+
+    }
+
+
+
+    console.log('Redes WiFi encontradas:');
+
+    networks.forEach(network => {
+
+      if (network.ssid.toLowerCase().includes(termoDePesquisa.toLowerCase())) {
+
+        console.log('Nome da rede:', network.ssid);
+
+        console.log('Sinal da rede:', network.signal_level);
+
+        console.log('---');
+
+      }
+
+    });
+
+  });
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
