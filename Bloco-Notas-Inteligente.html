@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+h1{
+color:#DC143C;
+bacground-color:#87CEFA;
+font-size:20px;
+}
+pre{
+color:black;
+background-color:#0000CD;
+font-size:15px;
+}
+</style>
+<head>
+    <title>Corretor Ortográfico e Dicas de JavaScript</title>
+</head>
+<body>
+    <h1>Corretor Ortográfico e Dicas de JavaScript</h1>
+    
+    <textarea id="texto" rows="10" cols="50"></textarea>
+    <button onclick="corrigirTexto()">Corrigir Erros Ortográficos</button>
+
+    <p id="dicas"></p>
+
+    <script>
+        function corrigirTexto() {
+            // Código para corrigir erros ortográficos
+            let texto = document.getElementById('texto').value;
+            // Implemente aqui o código para corrigir os erros ortográficos no texto
+            
+            // Dicas de programação em JavaScript
+            let dicas = "Dica 1: Utilize console.log() para exibir mensagens no console do navegador.\n";
+            dicas += "Dica 2: Use comentários (// ou /* */) para documentar seu código e facilitar a leitura.\n";
+            dicas += "Dica 3: Sempre teste seu código e verifique o console do navegador em caso de erros.\n";
+            dicas += "Dica 4: Utilize o método createElement() para criar novos elementos HTML dinamicamente.\n";
+            dicas += "Dica 5: Acesse elementos HTML pelo ID usando getElementById() para interagir com eles via JavaScript.\n";
+            dicas += "Dica 6: Crie funções que retornem valores usando a palavra-chave 'return' para obter resultados.\n";
+            dicas += "Dica 7: Crie objetos em JavaScript para representar entidades com propriedades e métodos.\n";
+            dicas += "Dica 8: Utilize arrays para armazenar coleções de dados de forma organizada e acessível.\n";
+            dicas += "Dica 9: Aprenda a utilizar eventos para responder a ações do usuário, como cliques em botões.\n";
+            dicas += "Dica 10: Pratique regularmente e experimente diferentes recursos da linguagem para aprimorar suas habilidades.\n";
+
+            document.getElementById('dicas').innerText = dicas;
+        }
+        let dicas = [
+            "Dica 1: Utilize console.log() para exibir mensagens no console do navegador.",
+            "Dica 2: Use comentários (// ou /* */) para documentar seu código e facilitar a leitura.",
+            "Dica 3: Sempre teste seu código e verifique o console do navegador em caso de erros.",
+            "Dica 4: Utilize o método createElement() para criar novos elementos HTML dinamicamente.",
+            "Dica 5: Acesse elementos HTML pelo ID usando getElementById() para interagir com eles via JavaScript.",
+            "Dica 6: Crie funções que retornem valores usando a palavra-chave 'return' para obter resultados.",
+            "Dica 7: Crie objetos em JavaScript para representar entidades com propriedades e métodos.",
+            "Dica 8: Utilize arrays para armazenar coleções de dados de forma organizada e acessível.",
+            "Dica 9: Aprenda a utilizar eventos para responder a ações do usuário, como cliques em botões.",
+            "Dica 10: Pratique regularmente e experimente diferentes recursos da linguagem para aprimorar suas habilidades."
+            // Adicione mais dicas aqui...
+        ];
+
+        let index = 0;
+
+        function exibirDica() {
+            document.getElementById('dicas').innerText = dicas[index];
+            index = (index + 1) % dicas.length;
+        }
+        setInterval(exibirDica, 5000); // Chama a função a cada 5 segundos
+
+        // Iniciar a exibição das dicas
+        exibirDica();
+    </script>
+    <pre>
+    Que a verdade seja verdade,
+    o amor iluminar,
+    a luz comparecer.
+    Para cada alma,
+    aprender no seu espírito.
+    A verdade de viver,
+    o amor perdão.
+    Que Jesus tem para ensinar,
+    e oferecer.
+    A melhor forma de viver.
+    <br><img src="https://media.tenor.com/3AEt1ds4xGAAAAAC/train-ride-daniel-shiffman.gif"width="100%">
+    </pre>
+</body>
+</html>
+
