@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #flowers {
+            position: absolute;
+            font-size: 50px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="flowers"></div>
+
+<script>
+    const word = "Jesus";
+    const numFlowers = 50;
+    const flowerDiv = document.getElementById('flowers');
+
+    for (let i = 0; i < numFlowers; i++) {
+        const flower = document.createElement('span');
+        flower.textContent = word;
+        flower.style.position = 'absolute';
+        flower.style.top = Math.random() * window.innerHeight + 'px';
+        flower.style.left = Math.random() * window.innerWidth + 'px';
+        flower.style.animation = 'falling 5s linear infinite';
+
+        flowerDiv.appendChild(flower);
+    }
+</script>
+
+</body>
+</html>
