@@ -1,0 +1,82 @@
+<html>
+<meta charset="UTF-8">
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<title>Interagindo com o Servidor PHP</title>
+<h1>Enviar Dados para o Servidor PHP</h1>
+
+
+
+<form action="https://www.bancolombia.com/personas" method="post">
+
+
+
+    <label for="nome">Nome:</label>
+
+
+
+    <input type="text" id="nome" name="nome">
+
+
+
+    <br>
+
+
+
+    <label for="email">Email:</label>
+
+
+
+    <input type="email" id="email" name="email">
+
+
+
+    <br>
+
+
+
+    <button type="submit">Enviar</button>
+
+
+
+</form>
+</html>
+//-----------------------------------------
+//SERVIDOR PHP
+
+<?php
+$servername = "localhost";
+$username = "mcegonha";
+$password = "0000";
+$dbname = "mcegonha";
+
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+// Criar tabela se ela não existir
+$sql_create_table = "CREATE TABLE IF NOT EXISTS tabela (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL
+)";
+
+if ($conn->query($sql_create_table) === TRUE) {
+    echo "Tabela criada com sucesso!<br>";
+} else {
+    echo "Erro ao criar a tabela: " . $conn->error . "<br>";
+}
+?>
