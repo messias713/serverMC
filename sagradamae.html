@@ -1,0 +1,61 @@
+<html>
+<meta charset="utf-8">
+<style>
+h1{color:blue;
+background-color:pink;
+font-size:25px;
+}
+ .color-1 { color: red; }
+  .color-2 { color: blue; }
+  .color-3 { color: green; }
+  .color-4 { color: purple; }
+pre{
+color:black;
+background-color:pink;
+font-size:15px;
+}
+</style>
+<h1>Dedicado a nossa sagrada mãe.<br>Nossa senhora virgem Maria.</h1>
+<h1 id="maria" class="color-1">Maria sagrada mãe da paz</h1>
+<p id="demo"></p>
+<script>
+function sagradaMae(){
+ return['Eu sou a rainha da paz.','Nossa senhora virgem Maria.','Escolhida por Deus.','Para ser a mãe de Jesus.'];
+}
+const mae = sagradaMae();
+document.getElementById('demo').innerHTML=mae.join('<br>');
+const colors = ['color-1', 'color-2', 'color-3', 'color-4'];
+  let index = 0;
+  
+  function changeColor() {
+    document.getElementById('maria').className = colors[index];
+    index = (index + 1) % colors.length;
+  }
+  
+  function fadeInOut() {
+    let element = document.getElementById('maria');
+    element.style.opacity = 1;
+    setTimeout(() => {
+      element.style.opacity = 0;
+      setTimeout(() => {
+        changeColor();
+        element.style.opacity = 1;
+        setTimeout(fadeInOut, 1000);
+      }, 1000);
+    }, 1000);
+  }
+  
+  fadeInOut();
+</script>
+<pre>
+Verso interior!
+
+A verdade vem do amor,
+a luz da iluminação.
+Que amor em reprodução.
+Nossa senhora virgem Maria.
+Perdoa-nos. Ensina-nos o caminho da salvação.
+<br><img src="https://media.tenor.com/conxLkSWWPYAAAAC/virgen-de-fatima-virgin-of-fatima.gif"width="100%">
+
+</pre>
+</html>
