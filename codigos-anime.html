@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borboleta Espiritual</title>
+    <style>
+        #borboleta {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        
+        #frases {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div id="borboleta"></div>
+    <div id="frases"></div>
+    
+    
+    <script>
+        const borboleta = document.getElementById('borboleta');
+        const frases = document.getElementById('frases');
+        let x = 0;
+        let y = 0;
+        let dx = 1;
+        let dy = 1;
+        
+        const amorInfinito = [
+            { text: 'Eu te amo para sempre', color: 'orange' }
+            
+        ];
+        
+        let index = 0;
+
+        function animate() {
+            x += dx;
+            y += dy;
+            borboleta.style.left = x + 'px';
+            borboleta.style.top = y + 'px';
+            
+            frases.innerHTML = amorInfinito[index].text.replace(/\n/g, '<br>');
+            frases.style.color = amorInfinito[index].color;
+            index = (index + 1) % amorInfinito.length;
+
+            if (x >= window.innerWidth - 50 || x <= 0) {
+                dx *= -1;
+            }
+
+            if (y >= window.innerHeight - 50 || y <= 0) {
+                dy *= -1;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+    
+    
+</body>
+</html>
+<br>---------------------------------------------------------------------<br>
+/* NOVO CODIGO ANIME *\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras Espirituais Voando</title>
+    <style>
+        #palavras {
+            position: absolute;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            color: purple;
+        }
+    </style>
+</head>
+<center>
+<h1 style="color:blue;">Deus a divindade suprema.</h1>
+</center>
+<body>
+    <div id="palavras">Deus a divindade da<br>Ciência espiritual</div>
+    
+    <script>
+        const palavras = document.getElementById('palavras');
+        let x = 0;
+        let y = 0;
+        let dx = 1;
+        let dy = 1;
+
+        function animate() {
+            x += dx;
+            y += dy;
+            palavras.style.left = x + 'px';
+            palavras.style.top = y + 'px';
+
+            if (x >= window.innerWidth - 200 || x <= 0) {
+                dx *= -1;
+            }
+
+            if (y >= window.innerHeight - 50 || y <= 0) {
+                dy *= -1;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
+<br>-----------------------------------<br>
+/*Imagem JOGADORA JOGO armadilha do click imagem*\
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Movimento de Imagem</title>
+    <h1>Imagem jogadora</h1>
+    <style>
+        #container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        #imagem {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="imagem" src="https://media.tenor.com/VBm7pOfoA7MAAAAC/flower.gif/50" alt="Imagem">
+    </div>
+    <br>
+    <button onclick="move('up')">Cima</button>
+    <button onclick="move('down')">Baixo</button>
+    <button onclick="move('left')">Esquerda</button>
+    <button onclick="move('right')">Direita</button>
+
+    <script>
+        const imagem = document.getElementById('imagem');
+
+        function move(direction) {
+            const step = 10;
+            const currentPosition = imagem.getBoundingClientRect();
+            const containerHeight = 300 - 100; // 400 (container height) - 100 (image height)
+            const containerWidth = 300 - 100; // 400 (container width) - 100 (image width)
+
+            switch (direction) {
+                case 'up':
+                    imagem.style.top = Math.max(currentPosition.top - step, 0) + 'px';
+                    break;
+                case 'down':
+                    imagem.style.top = Math.min(currentPosition.top + step, containerHeight) + 'px';
+                    break;
+                case 'left':
+                    imagem.style.left = Math.max(currentPosition.left - step, 0) + 'px';
+                    break;
+                case 'right':
+                    imagem.style.left = Math.min(currentPosition.left + step, containerWidth) + 'px';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
+
