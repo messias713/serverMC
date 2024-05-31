@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pesquisa Avançada</title>
+</head>
+<body>
+  <h1>HackerÉtico \/\/</h1>
+  
+  <form id="formPesquisa">
+    <input type="text" id="inputPesquisa" placeholder="Digite sua pesquisa avançada aqui">
+    
+    <!-- Filtros de pesquisa avançada -->
+    <div>
+      <h3>Filtros:</h3>
+      <input type="checkbox" id="filtro1" name="filtros"> <label for="filtro1">Filtro 1</label>
+      <input type="checkbox" id="filtro2" name="filtros"> <label for="filtro2">Filtro 2</label>
+      <input type="checkbox" id="filtro3" name="filtros"> <label for="filtro3">Filtro 3</label>
+    </div>
+    
+    <button type="submit" onclick="pesquisaAvancada()">Pesquisar</button>
+  </form>
+  
+  <script>
+    // Função para pesquisa avançada
+    function pesquisaAvancada(e) {
+      e.preventDefault();
+      
+      // Captura o valor do input e os filtros selecionados
+      let inputValor = document.getElementById('inputPesquisa').value;
+      let filtros = [];
+      document.querySelectorAll('input[name="filtros"]:checked').forEach((filtro) => {
+        filtros.push(filtro.id);
+      });
+      
+      // Realiza uma pesquisa avançada com o valor do input e os filtros selecionados
+      // Aqui você pode adicionar sua lógica de pesquisa avançada
+      console.log('Realizando pesquisa avançada com o valor: ' + inputValor);
+      console.log('Filtros selecionados: ' + filtros);
+    }
+  </script>
+  
+  <pre>
+  \/\/.document.txt
+  </pre>
+</body>
+</html>
+
